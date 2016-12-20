@@ -1,0 +1,133 @@
+st login: Mon Oct 31 15:08:58 on ttys002
+Mac-mini:~ samuelbrealey$ cd code_exp/pitchrecog/
+Mac-mini:pitchrecog samuelbrealey$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.ipynb_checkpoints/
+	Pitch.ipynb
+	a2002011001-e02.wav
+
+nothing added to commit but untracked files present (use "git add" to track)
+Mac-mini:pitchrecog samuelbrealey$ git add .
+Mac-mini:pitchrecog samuelbrealey$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   .ipynb_checkpoints/Pitch-checkpoint.ipynb
+	new file:   Pitch.ipynb
+	new file:   a2002011001-e02.wav
+
+Mac-mini:pitchrecog samuelbrealey$ git commit -m "First Commit, playing with rawaudio data file found on http://www.music.helsinki.fi/tmt/opetus/uusmedia/esim/"
+[master ceda2bc] First Commit, playing with rawaudio data file found on http://www.music.helsinki.fi/tmt/opetus/uusmedia/esim/
+ 3 files changed, 480 insertions(+)
+ create mode 100644 .ipynb_checkpoints/Pitch-checkpoint.ipynb
+ create mode 100644 Pitch.ipynb
+ create mode 100644 a2002011001-e02.wav
+Mac-mini:pitchrecog samuelbrealey$ git status
+On branch master
+nothing to commit, working directory clean
+Mac-mini:pitchrecog samuelbrealey$ git pull origin
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Mac-mini:pitchrecog samuelbrealey$ git pull origin master
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Mac-mini:pitchrecog samuelbrealey$ git pull master
+fatal: 'master' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Mac-mini:pitchrecog samuelbrealey$ git pull https://github.com/SamBrealey/pitchrecognition.git
+From https://github.com/SamBrealey/pitchrecognition
+ * branch            HEAD       -> FETCH_HEAD
+Already up-to-date.
+Mac-mini:pitchrecog samuelbrealey$ git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+Mac-mini:pitchrecog samuelbrealey$ git push https://github.com/SamBrealey/pitchrecognition.git
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream https://github.com/SamBrealey/pitchrecognition.git master
+
+Mac-mini:pitchrecog samuelbrealey$ git push -u origin https://github.com/SamBrealey/pitchrecognition.git
+fatal: remote part of refspec is not a valid name in https://github.com/SamBrealey/pitchrecognition.git
+Mac-mini:pitchrecog samuelbrealey$ git push -u https://github.com/SamBrealey/pitchrecognition.git master
+Username for 'https://github.com': SamBrealey
+Password for 'https://SamBrealey@github.com': 
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 8.46 MiB | 1.16 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+To https://github.com/SamBrealey/pitchrecognition.git
+   8e5eec8..ceda2bc  master -> master
+Branch master set up to track remote branch master from https://github.com/SamBrealey/pitchrecognition.git.
+Mac-mini:pitchrecog samuelbrealey$ git user
+git: 'user' is not a git command. See 'git --help'.
+
+Did you mean this?
+	subtree
+Mac-mini:pitchrecog samuelbrealey$ git --help
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Forward-port local commits to the updated upstream head
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+Mac-mini:pitchrecog samuelbrealey$ 
+
+
