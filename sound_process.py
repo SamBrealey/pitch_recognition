@@ -11,6 +11,21 @@ import matplotlib.pyplot as plt
 # # work with one channel
 
 
+class ScaleInputError(Exception):
+    pass
+
+
+def get_file_data(path):
+    return wavfile.read(path)
+
+
+def get_scaled_channel(sound):
+    if sound.dtype == 'int16':
+        sound = sound / (2.**15)
+        return sound[:, 0]
+    else:
+        raise ScaleInputError
+
 
 def plot_tone(channel, frequency):
     timeArray = pylab.arange(0, len(channel), 1)
@@ -46,8 +61,17 @@ def get_power_spectrum(transform, channel_length):
 
 
 def plot_power_spectrum(power, channel_length, frequency):
-    freqArray = pylab.arange(0, len(power), 1.0) * (frequency / channel_length)
+    freqArray = pylab.arange(0, len(power), 1.0) * (frequency / float(channel_length))
     plt.plot(freqArray/1000, 10*pylab.log10(power), color='k')
     plt.xlabel('Frequency (kHz)')
     plt.ylabel('Power (dB)')
     plt.show()
+
+
+def plot_spectrum(path):
+    frequency, snd = get_file_data(path)
+    channel = get_scaled_channel(snd)
+    fft = get_unique_part_of_fourier_transform(channel)
+    n = len(channel)
+    power = get_power_spectrum(fft, n)
+    plot_power_spectrum(power, n, frequency)
