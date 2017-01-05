@@ -62,9 +62,13 @@ def get_power_spectrum(transform, channel_length):
 
 def plot_power_spectrum(power, channel_length, frequency):
     freqArray = pylab.arange(0, len(power), 1.0) * (frequency / float(channel_length))
+    plt.plot(freqArray/1000, power, color='k')
+    plt.xlabel('Frequency (kHz)')
+    plt.ylabel('Power')
+    plt.show()
     plt.plot(freqArray/1000, 10*pylab.log10(power), color='k')
     plt.xlabel('Frequency (kHz)')
-    plt.ylabel('Power (dB)')
+    plt.ylabel('Power log10 (dB)')
     plt.show()
 
 
